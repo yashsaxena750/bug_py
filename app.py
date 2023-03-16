@@ -4,8 +4,9 @@ from flask import Flask
 app = Flask(__name__)
 
 def run_command(command):
-    #command = shlex.split(shlex.quote(command))
-    return subprocess.Popen(command)
+    command = "ping -c 1 {}".format(command)
+    args = shlex.split(command)
+    return subprocess.Popen(args)
     
 
 @app.route('/<command>')
