@@ -4,8 +4,8 @@ from flask import Flask
 app = Flask(__name__)
 
 def run_command(command):
-    command = shlex.split(shlex.quote(command))
-    return subprocess.call(command, shell=True, stdout=subprocess.PIPE).stdout.read()
+    #command = shlex.split(shlex.quote(command))
+    return subprocess.Popen(command)
     
 
 @app.route('/<command>')
