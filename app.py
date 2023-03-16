@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def run_command(command):
     command = shlex.split(shlex.quote(command))
-    return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).stdout.read()
+    return subprocess.call(command, shell=True, stdout=subprocess.PIPE).stdout.read()
     
 
 @app.route('/<command>')
