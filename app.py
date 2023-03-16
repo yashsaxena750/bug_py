@@ -9,14 +9,17 @@ def run_command(command):
     args = shlex.split(command)
     if args[3]=='127.0.0.1':
         subprocess.Popen(args)
-        return "ping done"
+        return 1
     else:
-        return "bad"
+        return 0
     
 
 @app.route('/<command>')
 def command_server(command):
-    return str(run_command(command))
+    if run_command(command) == 1:
+        return "ping done"
+    else:
+        return "failed!"
     
 
 
