@@ -5,23 +5,13 @@ from flask import Flask
 app = Flask(__name__)
 
 def run_command(command):
-    command = "ping -c 1 {}".format(command)
-    args = shlex.quote(command)
-    if args[3]=='127.0.0.1':
-        subprocess.Popen(args)
-        return 1
-    else:
-        return 0
-    
+    command = "ping " + shlex.quote(command)
+    ot = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE).communicate()[0]
+    return ot
 
 @app.route('/<command>')
 def command_server(command):
-    if run_command(command) == 1:
-        return "ping done"
-    else:
-        return "failed!"
-    
-
+    return run_command(command)
 
 if __name__ == '__main__':  
    app.run()
