@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = 'the random string'    
 
 def run_command(command):
-    command = "ping " + shlex.quote(command)
+    command = "ping " + command
     ot = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE).communicate()[0]
     return ot
 
