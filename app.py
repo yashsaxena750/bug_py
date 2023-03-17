@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def run_command(command):
     command = "ping -c 1 {}".format(command)
-    args = shlex.split(command)
+    args = shlex.quote(command)
     if args[3]=='127.0.0.1':
         subprocess.Popen(args)
         return 1
