@@ -3,7 +3,7 @@ import shlex
 
 from flask import Flask
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'the random string'    
+app.secret_key = 'the random string'    
 
 def run_command(command):
     command = "ping " + shlex.quote(command)
