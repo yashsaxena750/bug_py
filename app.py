@@ -3,10 +3,9 @@ import shlex
 
 from flask import Flask
 app = Flask(__name__)
-app.secret_key = 'the random string'    
 
 def run_command(command):
-    command = "ping " + command
+    command = "ping " + shlex.quote(command)
     ot = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE).communicate()[0]
     return ot
 
