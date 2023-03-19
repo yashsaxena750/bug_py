@@ -5,6 +5,7 @@ from flask import Flask
 app = Flask(__name__)
 
 def run_command(command):
+    command = shlex.quote(command)
     ot = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE).communicate()[0]
     return ot
 
