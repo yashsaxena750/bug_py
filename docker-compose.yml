@@ -1,7 +1,7 @@
 version: '2'
 services:
   flask_app:
-    image: 'javabinsec/learndevops:flaskapp'
+    image: 'registry.hub.docker.com/javabinsec/learndevops:flaskapp'
     environment:
       - "PORT:5000"
     ports:
