@@ -1,5 +1,6 @@
 import subprocess
 import shlex
+import html
 
 from flask import Flask
 app = Flask(__name__)
@@ -12,7 +13,7 @@ def run_command(command):
 
 @app.route('/<command>')
 def command_server(command):
-    return run_command(command)
+    return html.escape(run_command(command))
 
 if __name__ == '__main__':  
    app.run()
