@@ -4,7 +4,7 @@ import html
 
 from flask import Flask
 app = Flask(__name__)
-username = "check"
+uname = "check"
 password = "news"
 def run_command(command):
     #command = shlex.split(command)
