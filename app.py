@@ -4,7 +4,8 @@ import html
 
 from flask import Flask
 app = Flask(__name__)
-
+username = "check"
+password = "news"
 def run_command(command):
     #command = shlex.split(command)
     API_KEY = "fgmffdgjdskgjsrr374989ridjg"
