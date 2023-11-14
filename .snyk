@@ -1,4 +1,5 @@
 exclude:
  global:
+   - dfile/**
    - tests/**
    - Dockerfile
